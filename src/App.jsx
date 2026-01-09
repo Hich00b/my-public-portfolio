@@ -936,17 +936,17 @@ export default function Portfolio() {
                 <p className="text-sm font-medium text-slate-800">Project: "Natural Delivery Platform for Gene Therapy"</p>
                 <div className="mt-4 pt-4 border-t border-slate-100">
                     <div className="flex items-center justify-between p-3 bg-slate-50 rounded-lg border border-slate-200">
-                            <div className="flex items-center gap-3">
-                                <Award size={16} className="text-yellow-600" />
-                                <span className="text-sm font-bold text-slate-700">Certificate of Achievement</span>
-                            </div>
-                            <a 
-                                href={`mailto:${contactInfo.email}?subject=Request for HealthTech Award Certificate`}
-                                className="text-[10px] font-bold bg-white text-slate-500 px-3 py-1.5 rounded border border-slate-300 hover:border-blue-400 hover:text-blue-600 uppercase transition-colors"
-                            >
-                              Request Copy
-                            </a>
+                    <div className="flex items-center gap-3">
+                      <Award size={16} className="text-yellow-600 flex-shrink-0" />
+                      <span className="text-sm font-bold text-slate-700">Certificate of Achievement</span>
                     </div>
+                    <a 
+                      href={`mailto:${contactInfo.email}?subject=Request for HealthTech Award Certificate`}
+                      className="text-[10px] font-bold bg-white text-slate-500 px-3 py-1.5 rounded border border-slate-300 hover:border-blue-400 hover:text-blue-600 uppercase transition-colors whitespace-nowrap flex-shrink-0 ml-2"
+                    >
+                      Request Copy
+                    </a>
+                  </div>
                 </div>
             </Card>
           </div>
