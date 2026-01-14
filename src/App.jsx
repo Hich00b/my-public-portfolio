@@ -313,7 +313,7 @@ const voluntaryService = [
 const skillsMatrix = [
   { 
     category: "Laboratory & Research", 
-    skills: ["HPLC-MS/MS","GC", "Dynamic Light Scattering", "Fluorescence Spectroscopy", "TLC", "Cell Culture (HeLa, HEK)", "Atomic Force Microscopy (AFM)", "ImageJ", "GraphPad Prism", "ADME/PK Profiling", "PCR/RT-PCR", "Raman Spectroscopy", "Spectrophotometry", "UV-Vis-NIR", "siRNA Design", "Plant Exosome Isolation", "ELISA", "Western Blotting", "Cytotoxicity assays (MTT)", "Lyophilization", "DNA Extraction", "Gel Electrophoresis"] 
+    skills: ["HPLC-MS/MS","GC", "Dynamic Light Scattering", "Fluorescence Spectroscopy", "TLC", "Cell Culture (HeLa, HEK)", "Atomic Force Microscopy (AFM)", "ImageJ", "GraphPad Prism", "ADME/PK Profiling", "PCR/RT-PCR", "AFM", "Spectrophotometry", "UV-Vis-NIR", "siRNA Design", "Plant Exosome Isolation", "ELISA", "Western Blotting", "Cytotoxicity assays (MTT)", "Lyophilization", "DNA Extraction", "Gel Electrophoresis"] 
   },
   { 
     category: "Clinical & Professional", 
