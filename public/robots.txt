@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://dr-bensaada.pages.dev/sitemap.xml
+Host: https://dr-bensaada.pages.dev

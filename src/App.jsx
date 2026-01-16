@@ -376,7 +376,7 @@ const awards = [
   { 
     title: "Baccalaureate with High Honors", 
     institution: "Experimental Sciences", 
-    year: "2008",
+    year: "2008", 
     description: "Graduated with high honors in national baccalaureate exams" 
   }
 ];
@@ -484,7 +484,7 @@ const TimelineItem = ({ year, title, desc, isLast }) => (
   </div>
 );
 
-// Updated ExperienceCard: "Supporting Documentation" list with footer note
+// Updated ExperienceCard: Fixed color contrast
 const ExperienceCard = ({ title, institution, period, location, achievements, skills, documents, children }) => (
   <Card className="mb-6 border-l-4 border-l-blue-600">
     <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-4">
@@ -540,7 +540,8 @@ const ExperienceCard = ({ title, institution, period, location, achievements, sk
             );
           })}
         </div>
-        <p className="text-[10px] text-slate-400 italic">
+        {/* FIX: Darkened text color for accessibility (slate-400 -> slate-500) */}
+        <p className="text-[10px] text-slate-500 italic">
            * Digital copies available upon request for verification.
         </p>
       </div>
@@ -595,6 +596,7 @@ export default function Portfolio() {
         <button 
           onClick={() => setIsMenuOpen(!isMenuOpen)} 
           className="p-2 hover:bg-slate-100 rounded-md"
+          aria-label="Toggle Menu"
         >
           {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
@@ -640,9 +642,10 @@ export default function Portfolio() {
           
           <div className="pt-6 border-t border-slate-700">
             <div className="flex gap-3 justify-center">
-              <a href={contactInfo.linkedin} target="_blank" rel="noopener noreferrer" className="p-2 bg-slate-800 hover:bg-blue-600 rounded-lg transition-colors"><Linkedin size={18} /></a>
-              <a href={`mailto:${contactInfo.email}`} className="p-2 bg-slate-800 hover:bg-blue-600 rounded-lg transition-colors"><Mail size={18} /></a>
-              <a href={contactInfo.podcast} target="_blank" rel="noopener noreferrer" className="p-2 bg-slate-800 hover:bg-purple-600 rounded-lg transition-colors"><Mic size={18} /></a>
+              {/* FIX: Added aria-labels for accessibility */}
+              <a href={contactInfo.linkedin} target="_blank" rel="noopener noreferrer" className="p-2 bg-slate-800 hover:bg-blue-600 rounded-lg transition-colors" aria-label="LinkedIn Profile"><Linkedin size={18} /></a>
+              <a href={`mailto:${contactInfo.email}`} className="p-2 bg-slate-800 hover:bg-blue-600 rounded-lg transition-colors" aria-label="Send Email"><Mail size={18} /></a>
+              <a href={contactInfo.podcast} target="_blank" rel="noopener noreferrer" className="p-2 bg-slate-800 hover:bg-purple-600 rounded-lg transition-colors" aria-label="Biomedical Podcast"><Mic size={18} /></a>
             </div>
           </div>
         </aside>
@@ -655,7 +658,6 @@ export default function Portfolio() {
             <div className="absolute inset-0 bg-grid-white/5 bg-[size:20px_20px]"></div>
             <div className="relative z-10 max-w-3xl">
               <div className="flex flex-col md:flex-row gap-8 items-start">
-                  {/* Profile Picture Placeholder for Print/Header */}
                   <div className="w-48 h-48 bg-slate-200 rounded-full flex-shrink-0 border-8 border-white/30 overflow-hidden flex items-center justify-center relative shadow-2xl">
                     <img 
                       src="/images/profile-picture.webp" 
@@ -918,7 +920,8 @@ export default function Portfolio() {
                  <a href={contactInfo.youtube} target="_blank" rel="noopener noreferrer" className="flex-1 flex items-center justify-center gap-2 py-2 bg-red-600 rounded-lg text-sm font-bold hover:bg-red-500 transition-colors">
                    <Youtube size={16} /> YouTube
                  </a>
-                 <a href={contactInfo.spotify} target="_blank" rel="noopener noreferrer" className="flex-1 flex items-center justify-center gap-2 py-2 bg-green-600 rounded-lg text-sm font-bold hover:bg-green-500 transition-colors">
+                 {/* FIX: Darkened green button for better contrast (bg-green-700) */}
+                 <a href={contactInfo.spotify} target="_blank" rel="noopener noreferrer" className="flex-1 flex items-center justify-center gap-2 py-2 bg-green-700 rounded-lg text-sm font-bold hover:bg-green-600 transition-colors">
                    <Music size={16} /> Spotify
                  </a>
               </div>
@@ -936,17 +939,17 @@ export default function Portfolio() {
                 <p className="text-sm font-medium text-slate-800">Project: "Natural Delivery Platform for Gene Therapy"</p>
                 <div className="mt-4 pt-4 border-t border-slate-100">
                     <div className="flex items-center justify-between p-3 bg-slate-50 rounded-lg border border-slate-200">
-                    <div className="flex items-center gap-3">
-                      <Award size={16} className="text-yellow-600 flex-shrink-0" />
-                      <span className="text-sm font-bold text-slate-700">Certificate of Achievement</span>
+                            <div className="flex items-center gap-3">
+                                <Award size={16} className="text-yellow-600 flex-shrink-0" />
+                                <span className="text-sm font-bold text-slate-700">Certificate of Achievement</span>
+                            </div>
+                            <a 
+                                href={`mailto:${contactInfo.email}?subject=Request for HealthTech Award Certificate`}
+                                className="text-[10px] font-bold bg-white text-slate-500 px-3 py-1.5 rounded border border-slate-300 hover:border-blue-400 hover:text-blue-600 uppercase transition-colors whitespace-nowrap flex-shrink-0 ml-2"
+                            >
+                              Request Copy
+                            </a>
                     </div>
-                    <a 
-                      href={`mailto:${contactInfo.email}?subject=Request for HealthTech Award Certificate`}
-                      className="text-[10px] font-bold bg-white text-slate-500 px-3 py-1.5 rounded border border-slate-300 hover:border-blue-400 hover:text-blue-600 uppercase transition-colors whitespace-nowrap flex-shrink-0 ml-2"
-                    >
-                      Request Copy
-                    </a>
-                  </div>
                 </div>
             </Card>
           </div>
@@ -956,10 +959,11 @@ export default function Portfolio() {
           <div className="grid md:grid-cols-2 gap-8 mb-20">
              {skillsMatrix.map((category, index) => (
                 <Card key={index} className={category.category === "Languages" ? "border-l-4 border-l-amber-500" : ""}>
-                   <h4 className="font-bold text-slate-800 mb-4 border-b border-slate-100 pb-2 flex items-center justify-between">
+                   {/* FIX: Changed h4 to h3 for proper heading hierarchy */}
+                   <h3 className="font-bold text-slate-800 mb-4 border-b border-slate-100 pb-2 flex items-center justify-between">
                       {category.category}
                       {category.category === "Languages" && <Globe size={16} className="text-amber-500"/>}
-                   </h4>
+                   </h3>
                    <div className="flex flex-wrap gap-2">
                       {category.skills.map((skill, i) => (
                          <span key={i} className={`px-3 py-1 text-xs font-medium rounded-full border shadow-sm ${
@@ -984,7 +988,8 @@ export default function Portfolio() {
             <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6 flex items-start gap-3">
                 <Archive className="text-blue-600 flex-shrink-0" size={20} />
                 <div>
-                    <h4 className="text-sm font-bold text-blue-800">Verified Portfolio</h4>
+                    {/* FIX: Changed h4 to h3 for proper heading hierarchy */}
+                    <h3 className="text-sm font-bold text-blue-800">Verified Portfolio</h3>
                     <p className="text-sm text-blue-700 mt-1">
                         All certifications and awards listed below are verified and archived. 
                         Digital copies of specific certificates are available upon request for administrative review.
@@ -1097,6 +1102,7 @@ export default function Portfolio() {
                             <span className="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded">{conf.role}</span>
                         </div>
                     </div>
+                    {/* FIX: Darkened text for accessibility */}
                     <div className="mt-4 pt-4 border-t border-slate-100 flex items-center gap-2 text-slate-500 italic text-[11px]">
                        <FileCheck size={14} className="text-slate-400" />
                        <span>Presentation slides, abstract book entries, and certificates of attendance available upon request.</span>
